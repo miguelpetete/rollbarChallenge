@@ -1,0 +1,18 @@
+version: "3"
+
+services: 
+  database: 
+    image: postgres:14-alpine
+    restart: always
+    environment: 
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=bigChallenge
+    ports: 
+      - '5432:5432'
+    volumes: 
+      - bigChallenge-db:/var/lib/postgresql/data
+
+volumes: 
+  bigChallenge-db: 
+    driver: local
